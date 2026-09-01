@@ -1,0 +1,33 @@
+<main class="page">
+  <section class="card">
+    <header class="card__head">
+      <h1 class="title">Buscador de Pokémon</h1>
+      <p class="subtitle">Escribe un nombre y consulta la PokeAPI</p>
+    </header>
+
+    <form class="search" (ngSubmit)="buscar()">
+      <input
+        class="search__input"
+        type="text"
+        name="query"
+        [(ngModel)]="query"
+        placeholder="Ej: ditto, pikachu, charizard"
+        autocomplete="off"
+      />
+      <button class="search__btn" type="submit" [disabled]="loading">
+        {{ loading ? 'Buscando...' : 'Buscar' }}
+      </button>
+    </form>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+
+    <div class="result" *ngIf="pokemon">
+      <img
+        class="result__img"
+        [src]="pokemon.image"
+        [alt]="'Imagen de ' + pokemon.name"
+      />
+      <h2 class="result__name">{{ pokemon.name }}</h2>
+    </div>
+  </section>
+</main>
