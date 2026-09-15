@@ -1,13 +1,31 @@
-<header>
-    <h1> {{titulo}} </h1>
+<main class="page">
+  <section class="card">
+    <header class="card__head">
+      <h1 class="title">Pokédex</h1>
+      <p class="subtitle">Elige una pestaña y haz click para ver el nombre</p>
+    </header>
 
-    <nav>
-      <a routerLink="/registro" routerLinkActive="activate-tab">Registro</a>
-      <a routerLink="/buscador" routerLinkActive="activate-tab">Buscador Pokemon</a>
+    <nav class="tabs" role="tablist">
+      <button
+        *ngFor="let tab of tabs"
+        class="tabs__btn"
+        [class.tabs__btn--active]="activo === tab"
+        role="tab"
+        [attr.aria-selected]="activo === tab"
+        type="button"
+        (click)="seleccionar(tab)"
+      >
+        {{ tab }}
+      </button>
     </nav>
 
-    <main>
-        <router-outlet></router-outlet>
-    </main>
-
-</header>
+    <div class="panel" role="tabpanel">
+      <app-pikachu *ngIf="activo === 'pikachu'"></app-pikachu>
+      <app-charizard *ngIf="activo === 'charizard'"></app-charizard>
+      <app-bulbasaur *ngIf="activo === 'bulbasaur'"></app-bulbasaur>
+      <app-squirtle *ngIf="activo === 'squirtle'"></app-squirtle>
+      <app-ditto *ngIf="activo === 'ditto'"></app-ditto>
+      <app-mewtwo *ngIf="activo === 'mewtwo'"></app-mewtwo>
+    </div>
+  </section>
+</main>

@@ -1,11 +1,18 @@
 :root {
-  --bg: #f2f4f8;
-  --surface: #ffffff;
-  --ink: #1b1f27;
-  --muted: #6b7280;
-  --brand: #ef5350;
-  --brand-dark: #c62828;
-  --border: #e4e7ec;
+  --bg-0: #0b0f1a;
+  --bg-1: #121829;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --ink: #f4f6fb;
+  --muted: #9aa4bd;
+  --brand: #ff5d5d;
+  --brand-2: #ffb020;
+  --accent: #5b8cff;
+  --accent-2: #22d3ee;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  --radius: 22px;
 }
 
 * {
@@ -21,7 +28,13 @@ body {
 
 body {
   font-family: "Poppins", system-ui, -apple-system, sans-serif;
-  background: var(--bg);
   color: var(--ink);
   line-height: 1.5;
+  background:
+    radial-gradient(1100px 600px at 12% -10%, rgba(91, 140, 255, 0.22), transparent 60%),
+    radial-gradient(900px 520px at 110% 10%, rgba(255, 93, 93, 0.2), transparent 55%),
+    radial-gradient(800px 700px at 50% 120%, rgba(34, 211, 238, 0.14), transparent 60%),
+    linear-gradient(160deg, var(--bg-0), var(--bg-1));
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
 }

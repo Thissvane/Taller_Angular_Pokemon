@@ -1,13 +1,39 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { PikachuComponent } from './pokemon/pikachu.component';
+import { CharizardComponent } from './pokemon/charizard.component';
+import { BulbasaurComponent } from './pokemon/bulbasaur.component';
+import { SquirtleComponent } from './pokemon/squirtle.component';
+import { DittoComponent } from './pokemon/ditto.component';
+import { MewtwoComponent } from './pokemon/mewtwo.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [
+    CommonModule,
+    PikachuComponent,
+    CharizardComponent,
+    BulbasaurComponent,
+    SquirtleComponent,
+    DittoComponent,
+    MewtwoComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent{
-  titulo = 'Bienvenidos al buscador Pokemon con mas Aura de la 3227025';
+export class AppComponent {
+  tabs = [
+    'pikachu',
+    'charizard',
+    'bulbasaur',
+    'squirtle',
+    'ditto',
+    'mewtwo',
+  ];
+  activo = this.tabs[0];
+
+  seleccionar(tab: string): void {
+    this.activo = tab;
+  }
 }

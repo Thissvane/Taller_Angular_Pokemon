@@ -1,0 +1,15 @@
+<div class="poke">
+  <div class="poke__stage" *ngIf="image">
+    <img
+      class="poke__img"
+      [src]="image"
+      [alt]="'Imagen de ' + nombre"
+    />
+  </div>
+
+  <button class="poke__btn" type="button" (click)="revelar()">
+    {{ mostrarNombre ? 'Ocultar nombre' : 'Mostrar nombre' }}
+  </button>
+
+  <h2 class="poke__name" *ngIf="mostrarNombre">{{ nombre }}</h2>
+</div>
