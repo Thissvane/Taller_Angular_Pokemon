@@ -1,1 +1,13 @@
-<p>buscador-pokemon works!</p>
+<section class="pokemon-page">
+	<header class="page-header">
+		<p class="eyebrow">Pokédex destacada</p>
+		<h2>Seis Pokémon con más aura</h2>
+		<p class="intro">Explora sus tipos, altura y peso consultados directamente desde la PokéAPI.</p>
+	</header>
+
+	<div class="pokemon-grid">
+		@for (pokemon of pokemons; track pokemon) {
+			<app-pokemon-card [name]="pokemon" />
+		}
+	</div>
+</section>

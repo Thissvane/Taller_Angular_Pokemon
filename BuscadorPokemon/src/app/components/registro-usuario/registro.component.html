@@ -1,0 +1,86 @@
+<section class="card">
+  <header class="header">
+    <h1 class="title">Registro de usuario</h1>
+    <p class="subtitle">Crea tu cuenta para el buscador Pokémon con más Aura.</p>
+  </header>
+
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+    <label class="field">
+      <span class="label">Nombre</span>
+      <input
+        class="input"
+        type="text"
+        name="nombre"
+        [(ngModel)]="model.nombre"
+        #nombre="ngModel"
+        required
+        minlength="2"
+        autocomplete="name"
+      />
+      <span class="hint" *ngIf="nombre.touched && nombre.invalid">
+        Ingresa tu nombre (mínimo 2 caracteres).
+      </span>
+    </label>
+
+    <label class="field">
+      <span class="label">Usuario</span>
+      <input
+        class="input"
+        type="text"
+        name="usuario"
+        [(ngModel)]="model.usuario"
+        #usuario="ngModel"
+        required
+        minlength="3"
+        autocomplete="username"
+      />
+      <span class="hint" *ngIf="usuario.touched && usuario.invalid">
+        El usuario debe tener al menos 3 caracteres.
+      </span>
+    </label>
+
+    <label class="field">
+      <span class="label">Email</span>
+      <input
+        class="input"
+        type="email"
+        name="email"
+        [(ngModel)]="model.email"
+        #email="ngModel"
+        required
+        email
+        autocomplete="email"
+      />
+      <span class="hint" *ngIf="email.touched && email.invalid">
+        Ingresa un correo válido.
+      </span>
+    </label>
+
+    <label class="field">
+      <span class="label">Contraseña</span>
+      <input
+        class="input"
+        type="password"
+        name="password"
+        [(ngModel)]="model.password"
+        #password="ngModel"
+        required
+        minlength="6"
+        autocomplete="new-password"
+      />
+      <span class="hint" *ngIf="password.touched && password.invalid">
+        La contraseña debe tener al menos 6 caracteres.
+      </span>
+    </label>
+
+    <button class="button" type="submit">Registrarme</button>
+  </form>
+
+  <div class="success" *ngIf="registrado" role="status">
+    <p class="success-title">¡Registro completado!</p>
+    <p class="success-text">
+      Bienvenido/a <strong>{{ registrado.nombre }}</strong> (usuario:
+      {{ registrado.usuario }}).
+    </p>
+  </div>
+</section>
